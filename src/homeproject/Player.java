@@ -34,7 +34,7 @@ public class Player {
         String name = sc.nextLine();
 //        System.out.println(Table.ANSI_CYAN_BACKGROUND + name + Table.ANSI_RESET + ". How much money do you have?");
 //        int money = sc.nextInt();
-        System.out.println(Table.ANSI_CYAN_BACKGROUND + name + Table.ANSI_RESET + ". You have 1000 $. Good luck! Have a good game!");
+        System.out.println(Table.ANSI_CYAN_BACKGROUND + name + Table.ANSI_RESET + ". You have 1000 $. Good luck! Have a good game! \n\n");
         return new Player(name, 1000, 0, 0, 0, 0,0, 0, 0, false);
     }
 

@@ -19,11 +19,11 @@ public class UserInterface {
                     howManyPlayer = number;
                     correct = true;
                 } else {
-                    System.out.println(Table.ANSI_RED + "Please give a number between 0 and 6!" + Table.ANSI_RESET);
+                    System.out.println(Table.ANSI_RED + "Please enter a number between 0 and 6!" + Table.ANSI_RESET);
                     correct = false;
                 }
             } catch (InputMismatchException e) {
-                System.out.println(Table.ANSI_RED + "Please give a NUMBER between 0 and 6!!" + Table.ANSI_RESET);
+                System.out.println(Table.ANSI_RED + "Please enter a NUMBER between 0 and 6!!" + Table.ANSI_RESET);
                 correct = false;
             }
         } while (!correct);

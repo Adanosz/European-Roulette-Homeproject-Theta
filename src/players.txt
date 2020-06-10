@@ -1,0 +1,1 @@
+Player{name='asdf', money=15000, betValue=400, betType=1, betForInType=21, round=1, lostMoney=0, wonMoney=14000, win=true, betMultiplier=35}

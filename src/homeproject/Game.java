@@ -7,19 +7,19 @@ public class Game {
         int nr = 0;
         boolean correct = false;
         do {
-            System.out.printf("Kérem, adja meg %s:%n", nm);
+            System.out.printf("Please enter %s:%n", nm);
             Scanner sc = new Scanner(System.in);
             try {
                 String s = sc.nextLine();
                 nr = Integer.parseInt(s);
                 if (nr < 0) {
-                    System.out.println("Ez a szám sajnos túl kicsi!");
+                    System.out.println("This number is too small!");
                     correct = false;
                 } else {
                     correct = true;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Sajnos mindenképpen meg kell adnia egy számot!");
+                System.out.println("You have to enter a number!");
                 correct = false;
             }
         } while (!correct);
@@ -35,7 +35,7 @@ public class Game {
             for (int i = 0; i < choices.length; i++) {
                 System.out.printf("   %-7d%s%n", (i + 1), choices[i]);
             }
-            System.out.printf("   %-7s%s%n", "Más", "Kilép");
+//            System.out.printf("   %-7s%s%n", "Más", "Kilép");
             Scanner sc = new Scanner(System.in);
             try {
                 String s = sc.nextLine();
@@ -67,11 +67,11 @@ public class Game {
                 if (k > 0 && k <= choices.length) {
                     correct = true;
                 } else {
-                    System.out.println("Sajnos mindenképpen a listáról kell megadnia egy számot !");
+                    System.out.println(Table.ANSI_RED + "You have to choose a number from the list!" + Table.ANSI_RESET);
                     correct = false;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Sajnos mindenképpen meg kell adnia egy számot!");
+                System.out.println(Table.ANSI_RED +"You have to enter a number!" + Table.ANSI_RESET);
                 correct = false;
             }
         } while (!correct);
@@ -82,7 +82,13 @@ public class Game {
 
 
     public static int spin() {
-        return (int) (Math.random()*37);
+        System.out.println("The croupier spins the wheel and flicks the ball. ");
+        System.out.println("The wheel is spinning...");
+        int winnerNumber = 0;
+        for (int i = 0; i < 240000000; i++) {
+            winnerNumber = (int) (Math.random()*37);
+        }
+        return winnerNumber;
     }
 
 }

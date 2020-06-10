@@ -24,8 +24,8 @@ public class Main {
         do {
             Casino.croupier();
             int winnerNumber = spin();
-            System.out.println(winnerNumber);
-            Casino.getWhatYouDeserve();
+            System.out.println("\n And the winner number is... \n\n    "+ Table.ANSI_YELLOW + winnerNumber + Table.ANSI_RESET + "\n\n");
+            Casino.getWhatYouDeserve(winnerNumber);
             Casino.exit();
         } while (Casino.inGamePlayers.size() > 1);
     }
