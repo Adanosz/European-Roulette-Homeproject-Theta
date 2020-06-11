@@ -83,12 +83,28 @@ public class Game {
 
     public static int spin() {
         System.out.println("The croupier spins the wheel and flicks the ball. ");
-        System.out.println("The wheel is spinning...");
+        System.out.print("The wheel is spinning");
+        Thread t = new Thread();
+        int count = 0;
         int winnerNumber = 0;
-        for (int i = 0; i < 240000000; i++) {
-            winnerNumber = (int) (Math.random()*37);
+        while (count !=3) {
+            try {
+                Thread.sleep(1500);;
+                System.out.print(".");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            count++;
+            if (count == 3) {
+                winnerNumber = (int) (Math.random()*37);
+            }
         }
+//        int winnerNumber = 0;
+//        for (int i = 0; i < 240000000; i++) {
+//            winnerNumber = (int) (Math.random()*37);
+//        }
+        t.setDaemon(true);
+        t.start();
         return winnerNumber;
     }
-
 }

@@ -42,7 +42,7 @@ public class Win {
         } while (p < inGamePlayers.size());
     }
 
-    public static List<Integer[]> win (int winnerNumber) {
+    public static List<Integer[]> winnerNumberCases (int winnerNumber) {
         List<Integer[]> win = new ArrayList<>();
 
         switch (winnerNumber) {

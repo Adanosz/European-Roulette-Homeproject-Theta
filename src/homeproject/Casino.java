@@ -19,8 +19,8 @@ public class Casino {
         int playerIndex = 0;
         do {
             clear();
-            System.out.println(Table.ANSI_CYAN_BACKGROUND + inGamePlayers.get(playerIndex).getName() + Table.ANSI_RESET + ". Please enter how much you would like to bet.");
-            clear();
+            System.out.println("\n" + Table.ANSI_BLUE + inGamePlayers.get(playerIndex).getName() + Table.ANSI_RESET + ". Please enter how much you would like to bet.");
+
 
             int betValue = 0;
             boolean correct = false;
@@ -46,7 +46,7 @@ public class Casino {
             String[] liveMain = {"Number", "Vertical pair", "Horizontal pair",
                     "Column", "Four number", "Six line", "Row", "Dozen", "High-Low",
                     "Even-Odd", "Colour"}; //11
-            int path = Game.choosePath(liveMain, "from the bets menu", Table.ANSI_CYAN_BACKGROUND + inGamePlayers.get(playerIndex).getName() + Table.ANSI_RESET + ". Please enter the number of the bet you would like to make.");
+            int path = Game.choosePath(liveMain, "from the bets menu", Table.ANSI_BLUE + inGamePlayers.get(playerIndex).getName() + Table.ANSI_RESET + ". Please enter the number of the bet you would like to make.");
             inGamePlayers.get(playerIndex).setBetType(path);
             clear();
             Table.table();
@@ -131,12 +131,14 @@ public class Casino {
 
 
     public static void exit () {
-        int counter = -1;
-        int playerCounter = inGamePlayers.size()-1;
-        while ((counter < inGamePlayers.size()-1) /*&& (playerCounter > 0)*/){
-//            System.out.println("ingameplayers: " + inGamePlayers.size());
-//            System.out.println("counter: " + counter);
-            System.out.println("\n" +Table.ANSI_CYAN_BACKGROUND + inGamePlayers.get(playerCounter).getName() + Table.ANSI_RESET + ". Do you want to exit?");
+//        int inGameCounter = inGamePlayers.size();
+        int playerIndex = 0 ;
+//        while ((inGameCounter != inGamePlayers.size()-1) /*&& (playerCounter > 0)*/){
+        while (inGamePlayers.size() != playerIndex) {
+//            System.out.println("playerindex: " + playerIndex);
+//            System.out.println("ingameplayers.size: " + inGamePlayers.size());
+//            System.out.println("counter: " + inGamePlayers.size()/*inGameCounter*/);
+            System.out.println("\n" +Table.ANSI_BLUE + inGamePlayers.get(playerIndex).getName() + Table.ANSI_RESET + ". Do you want to " +Table.ANSI_RED + "exit?" + Table.ANSI_RESET);
             System.out.println("1.: Yes");
             System.out.println("Else: No");
             Scanner sc = new Scanner(System.in);
@@ -144,7 +146,7 @@ public class Casino {
             if (vote.equals("1")) {
                 BufferedWriter bw = null;
                 try {
-                    String mycontent = inGamePlayers.get(playerCounter).toString();
+                    String mycontent = inGamePlayers.get(playerIndex).getName();
                     File file = new File("players.txt");
 
                     if (!file.exists()) {
@@ -167,24 +169,27 @@ public class Casino {
                         System.out.println("Error in closing the BufferedWriter"+ex);
                     }
                 }
-                inGamePlayers.remove(playerCounter);
-                if (playerCounter>0)
-                    playerCounter--;
+                inGamePlayers.remove(playerIndex);
+//                if (playerCounter>0)
+//                playerIndex--;
+//                inGameCounter--;
             } else {
-                playerCounter--;
-                counter++;
+                playerIndex++;
+//                inGameCounter++;
             }
         }
     }
 
     public static void getWhatYouDeserve(int winnerNumber) {
-        for (int j = 0; j < Win.win(winnerNumber).size(); j++) {
+        for (int j = 0; j < Win.winnerNumberCases(winnerNumber).size(); j++) {
             for (int i = 0; i < inGamePlayers.size(); i++) {
 //                System.out.println(Arrays.equals(Win.win(21).get(i), playerTips.get(i)));
-                if (Arrays.equals(Win.win(winnerNumber).get(j), playerTips.get(i))) {
+                if (Arrays.equals(Win.winnerNumberCases(winnerNumber).get(j), playerTips.get(i))) {
                     inGamePlayers.get(i).setWin(true);
                     inGamePlayers.get(i).setWonMoney(inGamePlayers.get(i).getWonMoney()+(inGamePlayers.get(i).getBetValue() * inGamePlayers.get(i).getBetMultiplier()));
-                }
+                } /*else {
+                    inGamePlayers.get(i).setWin(false);
+                }*/
             }
         }
         int z = 0;
@@ -200,7 +205,9 @@ public class Casino {
         while (z < inGamePlayers.size());
         for (Player inGamePlayer : inGamePlayers) {
             System.out.println(inGamePlayer.toString());
+            inGamePlayer.setWin(false);
         }
+
     }
 }
 

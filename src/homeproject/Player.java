@@ -1,5 +1,6 @@
 package homeproject;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Player {
@@ -30,11 +31,28 @@ public class Player {
     public static Player addPlayer (int size) {
 
         System.out.println("What is Player" + (size+1) + " name?");
-        Scanner sc = new Scanner(System.in);
-        String name = sc.nextLine();
+       // Scanner sc = new Scanner(System.in);
+        //String name = sc.nextLine();
+        String name = null;
+        boolean correct = false;
+        do {
+            try {
+                Scanner sc = new Scanner(System.in);
+                name = sc.nextLine();
+                if (name != null) {
+                    correct = true;
+                } else {
+                    System.out.println(Table.ANSI_RED + "You must enter something..." + Table.ANSI_RESET);
+                    correct = false;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println(Table.ANSI_RED + "You must enter something..." + Table.ANSI_RESET);
+                correct = false;
+            }
+        } while (!correct);
 //        System.out.println(Table.ANSI_CYAN_BACKGROUND + name + Table.ANSI_RESET + ". How much money do you have?");
 //        int money = sc.nextInt();
-        System.out.println(Table.ANSI_CYAN_BACKGROUND + name + Table.ANSI_RESET + ". You have 1000 $. Good luck! Have a good game! \n\n");
+        System.out.println(Table.ANSI_BLUE + name + Table.ANSI_RESET + ". You have 1000 $. Good luck! Have a good game! \n");
         return new Player(name, 1000, 0, 0, 0, 0,0, 0, 0, false);
     }
 
@@ -45,18 +63,34 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
-                "name='" + name + '\'' +
-                ", money=" + money +
-                ", betValue=" + betValue +
-                ", betType=" + betType +
-                ", betForInType=" + betForInType +
-                ", round=" + round +
-                ", lostMoney=" + lostMoney +
-                ", wonMoney=" + wonMoney +
-                ", win=" + win +
-                ", betMultiplier=" + betMultiplier +
-                '}';
+        if (isWin()) {
+            return "Round" + round + ": " +
+                    "Congratulation " + Table.ANSI_BLUE + name + Table.ANSI_RESET + "! You won! " +
+                    " You have " + money +
+                    "$ " + ", already lost " + Table.ANSI_RED + lostMoney +
+                    "$" + Table.ANSI_RESET + " and won " + Table.ANSI_GREEN + wonMoney +
+                    "$" + Table.ANSI_RESET;
+        } else {
+            return "Round" + round + ": " +
+                    "Sorry " + Table.ANSI_BLUE + name + Table.ANSI_RESET + "! You lost this round! Better luck next time!" +
+                    " You have " + money +
+                    "$ " + ", already lost " + Table.ANSI_RED + lostMoney +
+                    "$" + Table.ANSI_RESET + " and won " + Table.ANSI_GREEN + wonMoney +
+                    "$" + Table.ANSI_RESET;
+        }
+//        return "Player{" +
+//                "name='" + Table.ANSI_BLUE + name + Table.ANSI_RESET + '\'' +
+//                ", money=" + money +
+//                ", betValue=" + betValue +
+//                ", betType=" + betType +
+//                ", betForInType=" + betForInType +
+//                ", round=" + round +
+//                ", lostMoney=" + Table.ANSI_RED + lostMoney +
+//                "$" + Table.ANSI_RESET + " and won " + Table.ANSI_GREEN + wonMoney +
+//                "$" + Table.ANSI_RESET +
+//                ", win=" + win +
+//                ", betMultiplier=" + betMultiplier +
+//                '}';
     }
 
     public int getBetMultiplier() {

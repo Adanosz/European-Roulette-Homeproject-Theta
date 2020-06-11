@@ -23,8 +23,10 @@ public class Main {
 //        List<Integer[]> playerTips;
         do {
             Casino.croupier();
+            Casino.clear();
+            Table.table();
             int winnerNumber = spin();
-            System.out.println("\n And the winner number is... \n\n    "+ Table.ANSI_YELLOW + winnerNumber + Table.ANSI_RESET + "\n\n");
+            System.out.println("\n And the winner number is... \n\n    "+ Table.ANSI_YELLOW + "\u001B[1m" +  winnerNumber + Table.ANSI_RESET + "\n\n");
             Casino.getWhatYouDeserve(winnerNumber);
             Casino.exit();
         } while (Casino.inGamePlayers.size() > 1);
