@@ -68,7 +68,7 @@ public class Player {
                     "$" + Table.ANSI_RESET;
         } else {
             return "Round" + round + ": " +
-                    "Sorry " + Table.ANSI_BLUE + name + Table.ANSI_RESET + "! You lost this round! Better luck next time!" +
+                    "Sorry " + Table.ANSI_BLUE + name + Table.ANSI_RESET + ", you lost this round... Better luck next time!" +
                     " You have " + money +
                     "$ " + ", already lost " + Table.ANSI_RED + lostMoney +
                     "$" + Table.ANSI_RESET + " and won " + Table.ANSI_GREEN + wonMoney +

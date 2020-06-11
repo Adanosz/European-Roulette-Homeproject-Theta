@@ -87,6 +87,7 @@ public class Wheel {
     }
 
     public static void rouletteWheel() {
+        System.out.println("The croupier spins the wheel and flicks the ball... ");
         System.out.println("       ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄");
         System.out.print("     ▄▀ "+ wp[1]+gapUpper + wp[2]+gap + wp[3]+gap + wp[4]+gap + wp[5]+gapUpper + wp[6]+gap + wp[7] + "  ▀▄\n");
         System.out.println("   ▄▀"+ wp[0] + "                          " + wp[8] +" ▀▄" );
