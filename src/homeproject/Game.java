@@ -35,7 +35,6 @@ public class Game {
             for (int i = 0; i < choices.length; i++) {
                 System.out.printf("   %-7d%s%n", (i + 1), choices[i]);
             }
-//            System.out.printf("   %-7s%s%n", "Más", "Kilép");
             Scanner sc = new Scanner(System.in);
             try {
                 String s = sc.nextLine();
@@ -77,34 +76,26 @@ public class Game {
         } while (!correct);
         return k;
     }
-
-
-
-
-    public static int spin() {
-        System.out.println("The croupier spins the wheel and flicks the ball. ");
-        System.out.print("The wheel is spinning");
-        Thread t = new Thread();
-        int count = 0;
-        int winnerNumber = 0;
-        while (count !=3) {
-            try {
-                Thread.sleep(1500);;
-                System.out.print(".");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            count++;
-            if (count == 3) {
-                winnerNumber = (int) (Math.random()*37);
-            }
-        }
+//    public static int spin() {
+//        System.out.println("The croupier spins the wheel and flicks the ball. ");
+//        System.out.print("The wheel is spinning");
+//        Thread t = new Thread();
+//        int count = 0;
 //        int winnerNumber = 0;
-//        for (int i = 0; i < 240000000; i++) {
-//            winnerNumber = (int) (Math.random()*37);
+//        while (count !=3) {
+//            try {
+//                Thread.sleep(1500);;
+//                System.out.print(".");
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            count++;
+//            if (count == 3) {
+//                winnerNumber = (int) (Math.random()*37);
+//            }
 //        }
-        t.setDaemon(true);
-        t.start();
-        return winnerNumber;
-    }
+//        t.setDaemon(true);
+//        t.start();
+//        return winnerNumber;
+//    }
 }

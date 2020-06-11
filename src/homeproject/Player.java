@@ -31,8 +31,6 @@ public class Player {
     public static Player addPlayer (int size) {
 
         System.out.println("What is Player" + (size+1) + " name?");
-       // Scanner sc = new Scanner(System.in);
-        //String name = sc.nextLine();
         String name = null;
         boolean correct = false;
         do {
@@ -50,8 +48,6 @@ public class Player {
                 correct = false;
             }
         } while (!correct);
-//        System.out.println(Table.ANSI_CYAN_BACKGROUND + name + Table.ANSI_RESET + ". How much money do you have?");
-//        int money = sc.nextInt();
         System.out.println(Table.ANSI_BLUE + name + Table.ANSI_RESET + ". You have 1000 $. Good luck! Have a good game! \n");
         return new Player(name, 1000, 0, 0, 0, 0,0, 0, 0, false);
     }
@@ -78,19 +74,6 @@ public class Player {
                     "$" + Table.ANSI_RESET + " and won " + Table.ANSI_GREEN + wonMoney +
                     "$" + Table.ANSI_RESET;
         }
-//        return "Player{" +
-//                "name='" + Table.ANSI_BLUE + name + Table.ANSI_RESET + '\'' +
-//                ", money=" + money +
-//                ", betValue=" + betValue +
-//                ", betType=" + betType +
-//                ", betForInType=" + betForInType +
-//                ", round=" + round +
-//                ", lostMoney=" + Table.ANSI_RED + lostMoney +
-//                "$" + Table.ANSI_RESET + " and won " + Table.ANSI_GREEN + wonMoney +
-//                "$" + Table.ANSI_RESET +
-//                ", win=" + win +
-//                ", betMultiplier=" + betMultiplier +
-//                '}';
     }
 
     public int getBetMultiplier() {
