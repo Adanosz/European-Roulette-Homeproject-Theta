@@ -3,11 +3,11 @@ package homeproject;
 import java.util.*;
 
 public class Game {
-    protected static int askNr(String nm) {
+    protected static int askNr() {
         int nr = 0;
-        boolean correct = false;
+        boolean correct;
         do {
-            System.out.printf("Please enter %s:%n", nm);
+            System.out.printf("Please enter %s:%n", "any number from 1-36");
             Scanner sc = new Scanner(System.in);
             try {
                 String s = sc.nextLine();
@@ -28,7 +28,7 @@ public class Game {
 
     static int choosePath(String[] choices, String menu, String title) {
         boolean correct = false;
-        int k = 0;
+        int k;
 
         do {
             System.out.println(title);

@@ -1,8 +1,5 @@
 package homeproject;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static homeproject.Table.*;
 
 public class Wheel {
@@ -38,7 +35,7 @@ public class Wheel {
     public static int spinTheWheel() {
         System.out.println("The croupier spins the wheel and flicks the ball. ");
         Thread t = new Thread();
-        int winnerNumber = 0;
+        int winnerNumber;
         int count = 0;
         winnerNumber = wpValue[num];
 
@@ -65,6 +62,7 @@ public class Wheel {
                         }
                         wp[k] = (Table.ANSI_WHITE_BACKGROUND +Table.ANSI_BLACK+ wp[k] + ANSI_RESET);
                         clear();
+                        System.out.println("The croupier spins the wheel and flicks the ball... ");
                         rouletteWheel();
                         k++;
 
@@ -87,7 +85,6 @@ public class Wheel {
     }
 
     public static void rouletteWheel() {
-        System.out.println("The croupier spins the wheel and flicks the ball... ");
         System.out.println("       ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄");
         System.out.print("     ▄▀ "+ wp[1]+gapUpper + wp[2]+gap + wp[3]+gap + wp[4]+gap + wp[5]+gapUpper + wp[6]+gap + wp[7] + "  ▀▄\n");
         System.out.println("   ▄▀"+ wp[0] + "                          " + wp[8] +" ▀▄" );

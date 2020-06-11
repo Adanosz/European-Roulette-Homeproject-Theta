@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Player {
-    private String name;
+    private final String name;
     private int money;
     private int betValue;
     private int betType;
@@ -30,9 +30,9 @@ public class Player {
 
     public static Player addPlayer (int size) {
 
-        System.out.println("What is Player" + (size+1) + " name?");
+        System.out.println("Player" + (size+1) + " please enter your name:");
         String name = null;
-        boolean correct = false;
+        boolean correct;
         do {
             try {
                 Scanner sc = new Scanner(System.in);
@@ -61,16 +61,16 @@ public class Player {
     public String toString() {
         if (isWin()) {
             return "Round" + round + ": " +
-                    "Congratulation " + Table.ANSI_BLUE + name + Table.ANSI_RESET + "! You won! " +
+                    "Congratulations " + Table.ANSI_BLUE + name + Table.ANSI_RESET + "! You won! " +
                     " You have " + money +
-                    "$ " + ", already lost " + Table.ANSI_RED + lostMoney +
+                    "$" + ", already lost " + Table.ANSI_RED + lostMoney +
                     "$" + Table.ANSI_RESET + " and won " + Table.ANSI_GREEN + wonMoney +
                     "$" + Table.ANSI_RESET;
         } else {
             return "Round" + round + ": " +
                     "Sorry " + Table.ANSI_BLUE + name + Table.ANSI_RESET + ", you lost this round... Better luck next time!" +
-                    " You have " + money +
-                    "$ " + ", already lost " + Table.ANSI_RED + lostMoney +
+                    " You have " + Table.ANSI_CYAN + money + Table.ANSI_RESET +
+                    "$" + ", already lost " + Table.ANSI_RED + lostMoney +
                     "$" + Table.ANSI_RESET + " and won " + Table.ANSI_GREEN + wonMoney +
                     "$" + Table.ANSI_RESET;
         }
@@ -88,9 +88,8 @@ public class Player {
         this.win = win;
     }
 
-    public int setBetForInType(int betForInType) {
+    public void setBetForInType(int betForInType) {
         this.betForInType = betForInType;
-        return betForInType;
     }
 
     public boolean isWin() {
@@ -101,29 +100,24 @@ public class Player {
         return name;
     }
 
-    public int setBetType(int betType) {
+    public void setBetType(int betType) {
         this.betType = betType;
-        return betType;
     }
 
-    public int setBetValue(int betValue) {
+    public void setBetValue(int betValue) {
         this.betValue = betValue;
-        return betValue;
     }
 
-    public int setLostMoney(int lostMoney) {
+    public void setLostMoney(int lostMoney) {
         this.lostMoney = lostMoney;
-        return lostMoney;
     }
 
-    public int setRound(int round) {
+    public void setRound(int round) {
         this.round = round;
-        return round;
     }
 
-    public int setWonMoney(int wonMoney) {
+    public void setWonMoney(int wonMoney) {
         this.wonMoney = wonMoney;
-        return wonMoney;
     }
 
     public int getBetForInType() {

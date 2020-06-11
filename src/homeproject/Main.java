@@ -2,13 +2,6 @@ package homeproject;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.*;
-
-import homeproject.Game;
-import homeproject.Table;
-import homeproject.Alone;
-import homeproject.Player;
-import homeproject.*;
 
 public class Main {
     public static void clear() {

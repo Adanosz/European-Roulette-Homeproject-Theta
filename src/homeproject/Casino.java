@@ -23,7 +23,7 @@ public class Casino {
 
 
             int betValue = 0;
-            boolean correct = false;
+            boolean correct;
             do {
                 try {
                     Scanner sc = new Scanner(System.in);
@@ -56,7 +56,7 @@ public class Casino {
                 case 1:
                     int num;
                     do {
-                        num = Game.askNr("any number from 1-36");
+                        num = Game.askNr();
                         if (num > 36) {
                             System.out.println("There's no such a number on the table!");
                         }
