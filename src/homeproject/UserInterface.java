@@ -7,10 +7,20 @@ import java.util.Scanner;
 
 public class UserInterface {
     public static int howManyPlayers() {
+        boolean correct1;
         boolean correct;
         Scanner sc;
         int howManyPlayer = 0;
+
         Hello.hello();
+
+        Hello.needHelp();
+        sc = new Scanner(System.in);
+        String choosen = sc.nextLine();
+        if (choosen.equals("y")) {
+            Help.help();
+        }
+
         do {
             Hello.howManyPlayer();
             try {

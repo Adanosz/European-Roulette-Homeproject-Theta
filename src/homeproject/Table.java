@@ -12,7 +12,7 @@ public class Table {
         System.out.println("█ └---┼----┴----┴----┴----┼----┴----┴----┴----┼----┴----┴----┴----┼----┘ █");
         System.out.println("▀▀▀▀█ │       1st 12      │       2nd 12      │       3rd 12      │ █▀▀▀▀▀");
         System.out.println("    █ ├---------┬---------┼---------┬---------┼---------┬---------┤ █");
-        System.out.println("    █ │ 1 to 18 │  Even   │" + ANSI_RED_BACKGROUND+"   RED   "+ANSI_RESET+"│"+ANSI_BLACK_BACKGROUND+"  BLACK  "+ANSI_RESET+"│   Odd   │19 to 36 │ █");
+        System.out.println("    █ │ 1 to 18 │  Even   │" + ANSI_RED_BACKGROUND+"   RED   "+ANSI_RESET+"│"+ANSI_BLACK_BACKGROUND+ ANSI_WHITE+ "  BLACK  "+ANSI_RESET+"│   Odd   │19 to 36 │ █");
         System.out.println("    █ └---------┴---------┴---------┴---------┴---------┴---------┘ █");
         System.out.println("    ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀");
     }
@@ -24,6 +24,7 @@ public class Table {
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_BLUE = "\u001B[34m";
     public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_WHITE = "\u001B[37m";
 
     public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
     public static final String ANSI_RED_BACKGROUND = "\u001B[41m";

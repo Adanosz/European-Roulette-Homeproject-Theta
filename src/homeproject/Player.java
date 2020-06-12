@@ -61,18 +61,27 @@ public class Player {
     public String toString() {
         if (isWin()) {
             return "Round" + round + ": " +
-                    "Congratulations " + Table.ANSI_BLUE + name + Table.ANSI_RESET + "! You won! " +
-                    " You have " + money +
+                    Table.ANSI_BLUE + name + Table.ANSI_RESET + "! Congratulations" + "! You won! " +
+                    " You have "+ Table.ANSI_CYAN + money +
                     "$" + ", already lost " + Table.ANSI_RED + lostMoney +
                     "$" + Table.ANSI_RESET + " and won " + Table.ANSI_GREEN + wonMoney +
                     "$" + Table.ANSI_RESET;
-        } else {
+        } if ((!isWin()) && money>0) {
             return "Round" + round + ": " +
-                    "Sorry " + Table.ANSI_BLUE + name + Table.ANSI_RESET + ", you lost this round... Better luck next time!" +
+                     Table.ANSI_BLUE + name + Table.ANSI_RESET + "Sorry, you lost this round... Better luck next time!" +
                     " You have " + Table.ANSI_CYAN + money + Table.ANSI_RESET +
                     "$" + ", already lost " + Table.ANSI_RED + lostMoney +
                     "$" + Table.ANSI_RESET + " and won " + Table.ANSI_GREEN + wonMoney +
                     "$" + Table.ANSI_RESET;
+        }
+        else {
+                 return    "Round" + round + ": " +
+                            Table.ANSI_BLUE + name + Table.ANSI_RESET + ", you lost this round, and lost all your money..." +
+                            " You have " + Table.ANSI_RED + "\u001B[1m" + money + Table.ANSI_RESET +
+                            "$" + ", lost " + Table.ANSI_RED + lostMoney +
+                            "$" + Table.ANSI_RESET + " and won " + Table.ANSI_GREEN + wonMoney +
+                            "$" + Table.ANSI_RESET + "\n        We are looking forward to seeing you again";
+
         }
     }
 

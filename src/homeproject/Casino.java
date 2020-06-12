@@ -129,10 +129,29 @@ public class Casino {
         } while (playerIndex < inGamePlayers.size());
     }
 
+    public static void lose () {
+        int playerIndex = 0;
+        for (int i = 0; i <inGamePlayers.size()+6; i++) {
+            try {
+
+                if ((inGamePlayers.get(playerIndex).getMoney() == 0)) {
+                    inGamePlayers.remove(playerIndex);
+                } else {
+                    playerIndex++;
+                }
+            } catch (IndexOutOfBoundsException ioobe) {
+                System.out.print("");
+            }
+        }
+    }
+
 
     public static void exit () {
         int playerIndex = 0 ;
-        while (inGamePlayers.size() != playerIndex) {
+            while (inGamePlayers.size() != playerIndex) {
+//                if (inGamePlayers.get(playerIndex).getMoney()==0) {
+//                    inGamePlayers.remove(playerIndex);
+//                }
             System.out.println("\n" +Table.ANSI_BLUE + inGamePlayers.get(playerIndex).getName() + Table.ANSI_RESET + ". Do you want to " +Table.ANSI_RED + "exit?" + Table.ANSI_RESET);
             System.out.println("1.: Yes");
             System.out.println("Else: No");
@@ -195,7 +214,6 @@ public class Casino {
             System.out.println(inGamePlayer.toString());
             inGamePlayer.setWin(false);
         }
-
     }
 }
 

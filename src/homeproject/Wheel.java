@@ -30,27 +30,30 @@ public class Wheel {
 
     static String gap = "  ";
     static String gapUpper = " ";
-    static int num = ((int) (Math.random()*37) );
+    public static int num() {
+        return ((int) (Math.random()*37));
+    }
 
     public static int spinTheWheel() {
         System.out.println("The croupier spins the wheel and flicks the ball. ");
         Thread t = new Thread();
         int winnerNumber;
         int count = 0;
-        winnerNumber = wpValue[num];
+        int number = num();
+        winnerNumber = wpValue[number];
 
             while (count != 1) {
                 try {
                     int k = 0;
                     int slow = 25;
-                    for (int j = 0; j < (((37* 5) + num)+1); j++) {
+                    for (int j = 0; j < (((37* 5) + number)+1); j++) {
                         if (k == 37) {
                             k = 0;
                         }
                         if (j%37 == 21) {
                             slow += 25;
                         }
-                        if (j > ((37*5) + (num-10))) {
+                        if (j > ((37*5) + (number-10))) {
                             slow += 30;
                         }
                         Thread.sleep(slow);
@@ -99,13 +102,13 @@ public class Wheel {
         System.out.print("█ "+wp[28] + "                                 " + wp[17] + " █ └---┼----┴----┴----┴----┼----┴----┴----┴----┼----┴----┴----┴----┼----┘ █\n");
         System.out.println(" ▀▄ "+ wp[27] +"                             " + wp[18] +" ▄▀▀▀▀▀█ │       1st 12      │       2nd 12      │       3rd 12      │ █▀▀▀▀▀");
         System.out.println("   ▀▄ "+ wp[26] + "                         " + wp[19] +" ▄▀      █ ├---------┬---------┼---------┬---------┼---------┬---------┤ █");
-        System.out.print("     ▀▄  "+ wp[25]+gap + wp[24]+gap + wp[23]+gap+" " + wp[22]+gap + wp[21]+gap + wp[20]+ "  ▄▀        █ │ 1 to 18 │  Even   │" + ANSI_RED_BACKGROUND+"   RED   "+ANSI_RESET+"│"+ANSI_BLACK_BACKGROUND+"  BLACK  "+ANSI_RESET+"│   Odd   │19 to 36 │ █\n");
+        System.out.print("     ▀▄  "+ wp[25]+gap + wp[24]+gap + wp[23]+gap+" " + wp[22]+gap + wp[21]+gap + wp[20]+ "  ▄▀        █ │ 1 to 18 │  Even   │" + ANSI_RED_BACKGROUND+"   RED   "+ANSI_RESET+"│"+ANSI_BLACK_BACKGROUND+ANSI_WHITE+"  BLACK  "+ANSI_RESET+"│   Odd   │19 to 36 │ █\n");
         System.out.println("       ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀          █ └---------┴---------┴---------┴---------┴---------┴---------┘ █");
         System.out.println("                                            ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀");
     }
 
     public static void winnerNumberWheel() {
         rouletteWheel();
-        wp[num] = (Table.ANSI_WHITE_BACKGROUND +Table.ANSI_BLACK+ wp[num] + ANSI_RESET);
+        wp[num()] = (Table.ANSI_WHITE_BACKGROUND +Table.ANSI_BLACK+ wp[num()] + ANSI_RESET);
     }
 }

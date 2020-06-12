@@ -76,6 +76,15 @@ public class Game {
         } while (!correct);
         return k;
     }
+
+//    public static void loser () {
+//        for (int i = 0; i <(Casino.inGamePlayers.size()) ; i++) {
+//            if (Casino.inGamePlayers.get(i).getMoney() == 0) {
+//                Casino.inGamePlayers.remove(i);
+//                System.out.println("A " +Casino.inGamePlayers.get(i).getName() + " nevű játékos kiesett");
+//            }
+//        }
+//    }
 //    public static int spin() {
 //        System.out.println("The croupier spins the wheel and flicks the ball. ");
 //        System.out.print("The wheel is spinning");
